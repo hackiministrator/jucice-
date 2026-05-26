@@ -24,7 +24,7 @@ Step 1: Test HTML Injection
  1. Open the application search bar.
  2. Enter the following input:
 
-<h1>66</h1>
+//<h1>66</h1>//
 
 
 3. Submit the search.
