@@ -1,6 +1,6 @@
 Broken Access Control – Privilege Escalation via Role Manipulation
 
-🧾 Summary
+ Summary
 
 A critical Broken Access Control vulnerability was discovered in the account registration process.
 The application allows a user to modify their assigned role during account creation, enabling a normal user to escalate privileges to an administrator.
@@ -9,19 +9,16 @@ This occurs because the backend trusts user-controlled input for role assignment
 
 ⸻
 
-📍 Affected Component
+ Affected Component
  • User Registration Endpoint
  • Account Creation Flow
 
-⸻
-
-⚙️ Steps to Reproduce
+ Steps to Reproduce
 
 1. Create a Normal User Account
 
 Register a new account using the application’s standard signup form.
-
-⸻
+![Admin Access](image/acc_cre.png)
 
 2. Intercept the Request/Response
 
@@ -35,8 +32,7 @@ The response contains:
 }
 
 This indicates the default role assigned by the server.
-
-⸻
+![first reso](image/first_res.png)
 
 3. Modify the Request
 
@@ -52,61 +48,51 @@ to:
 4. Forward the Modified Request
 
 Send the modified request to the server.
-
-⸻
+![edited req](image/edit_request.png)
 
 5. Result
 
 The account is created successfully with elevated privileges:
  • Role is set to admin
  • No validation or restriction is enforced by the server
+ ![edited res](image/edit_response.png)
 
-⸻
-
-📸 Proof of Concept
+ Proof of Concept:
  • Registration request showing modified role parameter
  • Response confirming role assignment
  • Access to admin-only features/dashboard
+![Admin Access](image/final_result.png)
 
-⸻
-
-💥 Impact
-
+ Impact:
 This vulnerability allows an attacker to:
  • Escalate privileges from normal user → admin
  • Access restricted administrative functionalities
  • View or modify sensitive data
  • Fully compromise application integrity
 
-This is a critical security issue under OWASP Top 10: A01 – Broken Access Control.
+This is a critical security issue under OWASP Top 10: A01 – Broken Access Control
 
-⸻
 
-🔍 Root Cause
-
+ Root Cause:
 The application trusts client-side input for sensitive fields such as:
  • User role
  • Access level
 
 Instead of enforcing role assignment strictly on the backend.
 
-⸻
 
-🛠️ Recommended Fix
+Recommended Fix:
  • Never accept role values from client-side input during registration
  • Assign user roles only on the server side
  • Implement strict authorization checks on all admin routes
  • Validate and sanitize all incoming requests
  • Enforce role-based access control (RBAC)
 
-⸻
 
-🚨 Severity
 
+ Severity:
 Critical
 
-⸻
 
-🧠 Notes
-
+ Notes:
 This issue demonstrates a classic privilege escalation scenario caused by improper authorization handling. Proper server-side validation would completely prevent this attack.
