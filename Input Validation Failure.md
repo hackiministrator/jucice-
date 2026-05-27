@@ -40,8 +40,10 @@ This indicates that the server does not properly validate submitted rating value
 2. Go to the History tab.
 3. Locate the request responsible for submitting the feedback.
 4. Open the request in the Request Editor.
+5. 
 
 ![Admin req](mm.png)
+
 
 ---
 
