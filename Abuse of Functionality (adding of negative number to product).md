@@ -1,9 +1,5 @@
 Quantity Manipulation / Negative Value Injection Vulnerability Report
 
-Application Tested
-
-OWASP Juice Shop (Local Lab Environment)
-
 Vulnerability Type
 
 Business Logic Vulnerability / Parameter Manipulation
