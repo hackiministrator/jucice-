@@ -25,7 +25,7 @@ Step 1: Add Product to Cart
  2. Select any product.
  3. Increase the quantity of the product in the cart.
 
-![Admin req](image/f_page.png)
+![Admin req](image/f-page.png)
 
 ⸻
 
