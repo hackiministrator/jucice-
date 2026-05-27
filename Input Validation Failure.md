@@ -41,7 +41,7 @@ This indicates that the server does not properly validate submitted rating value
 3. Locate the request responsible for submitting the feedback.
 4. Open the request in the Request Editor.
 
-![Admin req](main-rate.png)
+![Admin req](mm.png)
 
 ---
 
